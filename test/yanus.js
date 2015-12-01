@@ -21,8 +21,10 @@ describe('Yanus', function () {
     assert.deepEqual({}, Yanus({}));
     assert.deepEqual(defaults, Yanus(defaults));
     assert.deepEqual({}, Yanus({}, 'wrong'));
-    assert.deepEqual({}, Yanus({}, 'wrong', 'params'));
-    assert.deepEqual(defaults, Yanus(defaults, 'wrong', 'params'));
+
+    // yeah, strings are technically array-like so 'wrong', 'params' won`t work
+    assert.deepEqual({}, Yanus({}, 'wrong', 123));
+    assert.deepEqual(defaults, Yanus(defaults, 'wrong', 123));
   });
 
   it('should return extend defaults with the arguments provided', function () {
@@ -79,5 +81,21 @@ describe('Yanus', function () {
         motto: "For the Watch!"
       }
     );
+  });
+
+  it('should work with the case of needlex (bugfix regression)', function () {
+    assert.deepEqual(Yanus({
+      min: 0,
+      max: 100,
+      degrees: false,
+      overflow: false,
+      val: 0
+    }, ['val', 'max', 'min', 'overflow', 'degrees'], [50]), {
+      min: 0,
+      max: 100,
+      degrees: false,
+      overflow: false,
+      val: 50
+    });
   });
 });

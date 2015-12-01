@@ -13,8 +13,7 @@ function Yanus (defaults, signature, args) {
 
   var params = _shallow_copy(defaults);
   var i;
-  if (!Array.isArray(args) || !args.length ||
-    !Array.isArray(signature)  || !signature.length) {
+  if (!args || !args.length || !signature  || !signature.length) {
     return params;
   }
   if (typeof args[0] == 'object') {
