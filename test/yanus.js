@@ -1,6 +1,6 @@
 var chai = require('chai');
 var assert = chai.assert;
-var yanus = require('../src/yanus');
+var yanus = require('../src/yanus.js');
 
 describe('yanus', function () {
   var defaults = {
@@ -90,7 +90,7 @@ describe('yanus', function () {
       degrees: false,
       overflow: false,
       val: 0
-    }, ['val', 'max', 'min', 'overflow', 'degrees'], [50]), {
+    }, ['val', 'max', 'min', 'overflow', 'degrees'], {0: 50, length: 1}), {
       min: 0,
       max: 100,
       degrees: false,
