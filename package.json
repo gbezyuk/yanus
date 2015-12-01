@@ -1,0 +1,28 @@
+{
+  "name": "yanus",
+  "version": "0.0.1",
+  "description": "A tiny tool for both plain list and object function param styles support",
+  "main": "src/Yanus.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbezyuk/yanus.git"
+  },
+  "keywords": [
+    "js",
+    "params",
+    "options"
+  ],
+  "author": "Grigoriy Beziuk",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gbezyuk/yanus/issues"
+  },
+  "homepage": "https://github.com/gbezyuk/yanus#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
