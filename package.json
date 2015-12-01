@@ -1,6 +1,6 @@
 {
   "name": "yanus",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "A tiny tool for both plain list and object function param styles support",
   "main": "src/Yanus.js",
   "scripts": {
