@@ -1,6 +1,6 @@
 var Needlex = {};
 
-function Yanus (defaults, signature, args) {
+function yanus (defaults, signature, args) {
   function _shallow_copy(oldObj) {
       var newObj = {};
       for(var i in oldObj) {
@@ -32,7 +32,7 @@ function Yanus (defaults, signature, args) {
 
 try {
   // for NodeJS and other require-capable engines
-  module.exports = Yanus;
+  module.exports = yanus;
 } catch (e) {
   // in case of plain <script src=...> style running in a browser
 }

@@ -1,11 +1,11 @@
-# Yanus
+# yanus
 A tiny tool for both plain list and object function param styles support
 [![Build Status](https://travis-ci.org/gbezyuk/yanus.png?branch=master)](https://travis-ci.org/gbezyuk/yanus)
 
 ## How to use
 ```
 // NodeJS
-var Yanus = require('Yanus');
+var yanus = require('yanus');
 
 // in a nutshell
 function prepare_agent_legend () {
@@ -23,7 +23,7 @@ function prepare_agent_legend () {
     'is_agent', 'is_really_agent', 'motto'];
 
   // here we go
-  var params = Yanus(defaults, signature, arguments);
+  var params = yanus(defaults, signature, arguments);
 
   // now do some stuff on your own
 }

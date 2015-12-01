@@ -1,8 +1,8 @@
 var chai = require('chai');
 var assert = chai.assert;
-var Yanus = require('../src/Yanus');
+var yanus = require('../src/yanus');
 
-describe('Yanus', function () {
+describe('yanus', function () {
   var defaults = {
     name: 'Bond',
     full_name: 'James Bond',
@@ -17,18 +17,18 @@ describe('Yanus', function () {
     'is_agent', 'is_really_agent', 'motto'];
 
   it('should return defaults or empty object with empty or incorrect arguments', function () {
-    assert.deepEqual({}, Yanus());
-    assert.deepEqual({}, Yanus({}));
-    assert.deepEqual(defaults, Yanus(defaults));
-    assert.deepEqual({}, Yanus({}, 'wrong'));
+    assert.deepEqual({}, yanus());
+    assert.deepEqual({}, yanus({}));
+    assert.deepEqual(defaults, yanus(defaults));
+    assert.deepEqual({}, yanus({}, 'wrong'));
 
     // yeah, strings are technically array-like so 'wrong', 'params' won`t work
-    assert.deepEqual({}, Yanus({}, 'wrong', 123));
-    assert.deepEqual(defaults, Yanus(defaults, 'wrong', 123));
+    assert.deepEqual({}, yanus({}, 'wrong', 123));
+    assert.deepEqual(defaults, yanus(defaults, 'wrong', 123));
   });
 
   it('should return extend defaults with the arguments provided', function () {
-    assert.deepEqual(Yanus(defaults, signature, ['Jack']), {
+    assert.deepEqual(yanus(defaults, signature, ['Jack']), {
       name: 'Jack',
       full_name: 'James Bond',
       code: '007',
@@ -37,7 +37,7 @@ describe('Yanus', function () {
       is_really_agent: true,
       motto: "The World is not enough"
     });
-    assert.deepEqual(Yanus(defaults, signature, ['John', 'John Snow']), {
+    assert.deepEqual(yanus(defaults, signature, ['John', 'John Snow']), {
       name: 'John',
       full_name: 'John Snow',
       code: '007',
@@ -46,7 +46,7 @@ describe('Yanus', function () {
       is_really_agent: true,
       motto: "The World is not enough"
     });
-    assert.deepEqual(Yanus(defaults, signature, [
+    assert.deepEqual(yanus(defaults, signature, [
       {'name': 'Jack'}, 'other', 'args', 'don`t', 'matter']), {
         name: 'Jack',
         full_name: 'James Bond',
@@ -57,7 +57,7 @@ describe('Yanus', function () {
         motto: "The World is not enough"
       }
     );
-    assert.deepEqual(Yanus(defaults, signature, [
+    assert.deepEqual(yanus(defaults, signature, [
       {'name': 'John', 'full_name': 'John Snow'}]), {
         name: 'John',
         full_name: 'John Snow',
@@ -69,7 +69,7 @@ describe('Yanus', function () {
       }
     );
 
-    assert.deepEqual(Yanus(defaults, signature, [
+    assert.deepEqual(yanus(defaults, signature, [
       {name: 'John', full_name: 'John Snow',
         is_really_agent: false, motto: "For the Watch!"}]), {
         name: 'John',
@@ -84,7 +84,7 @@ describe('Yanus', function () {
   });
 
   it('should work with the case of needlex (bugfix regression)', function () {
-    assert.deepEqual(Yanus({
+    assert.deepEqual(yanus({
       min: 0,
       max: 100,
       degrees: false,
